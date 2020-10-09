@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -17,9 +17,12 @@ public class EnemyBehaviour : MonoBehaviour
     public float rotationSpeed = 40.0f;
     Vector3 movement;
 
+    public GameObject gameController;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameController = GameObject.Find("GameplayGameController");
         target = GameObject.Find("PlayerBase");
         movement = new Vector3();
     }
@@ -42,9 +45,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            int temp = gameController.GetComponent<PlayGameController>().health;
+            temp--;
+            gameController.GetComponent<PlayGameController>().health = temp;
             Destroy(this.gameObject);
         }
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "Bullet" && transform.position.y < 100.0f)
         {
             Destroy(this.gameObject);
         }
