@@ -49,7 +49,7 @@ public class GiftBehaviour : MonoBehaviour
             tempHealth += 2;
             gameController.GetComponent<PlayGameController>().health = tempHealth;
             int temp = gameController.GetComponent<PlayGameController>().score;
-            temp += 5;
+            temp += 10;
             gameController.GetComponent<PlayGameController>().score = temp;
             Destroy(this.gameObject);
         }
