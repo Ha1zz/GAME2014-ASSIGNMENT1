@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Name: Tran Thien Phu
+//ID: 101160213
+//Date Last Modifield: 20/10/2020
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +30,8 @@ public class PlayGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health > 100)
+            health = 100;
         healthText.text = health.ToString();
         scoreText.text = score.ToString();
         if (health <= 0)

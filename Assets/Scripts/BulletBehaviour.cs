@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Name: Tran Thien Phu
+//ID: 101160213
+//Date Last Modifield: 20/10/2020
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -30,9 +34,9 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            int tempHealth = gameController.GetComponent<PlayGameController>().health;
-            tempHealth++;
-            gameController.GetComponent<PlayGameController>().health = tempHealth;
+            //int tempHealth = gameController.GetComponent<PlayGameController>().health;
+            //tempHealth++;
+            //gameController.GetComponent<PlayGameController>().health = tempHealth;
             int tempScore = gameController.GetComponent<PlayGameController>().score;
             tempScore++;
             gameController.GetComponent<PlayGameController>().score = tempScore;

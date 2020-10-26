@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Name: Tran Thien Phu
+//ID: 101160213
+//Date Last Modifield: 20/10/2020
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
@@ -12,11 +16,13 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 60.0f;
     public GameObject bullet;
     private int countFrame = 0;
+    public AudioSource audio;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        clip = Resources.Load<AudioClip>("SFX/Firing");
     }
 
     // Update is called once per frame
@@ -36,16 +42,11 @@ public class PlayerController : MonoBehaviour
 
             angle -= 90;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            //Vector3 vectorUp = 
-            //CryptoAPITransform.for
-            //if (countFrame == 60)
-            //{
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Instantiate(bullet, transform.position + transform.right * 32.0f + transform.up * 6.5f, targetRotation);
+                audio.PlayOneShot(clip);
             }
-                
-            //}
         }
         countFrame++;
         if (countFrame == 120)
